@@ -5,15 +5,22 @@
 //
 
 import SwiftUI
+import UICore
 
-struct ContentView: View {
+public struct ContentView: View {
     
-    @EnvironmentObject var viewModel: PositionsViewModel
+    @ObservedObject var viewModel: PositionsViewModel = PositionsViewModel()
     
-    var body: some View {
-        PositionListView(positions: viewModel.getPositions())
-            .onAppear {
-                self.viewModel.fetch()
+    public var body: some View {
+        VStack {
+            if viewModel.isLoading && viewModel.allPositions.isEmpty {
+                FullScreenLoader()
+            } else {
+                PositionListView(positions: viewModel.allPositions)
+            }
+        }
+        .onAppear {
+            self.viewModel.fetch()
         }
     }
 }

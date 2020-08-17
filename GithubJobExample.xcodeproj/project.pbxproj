@@ -16,10 +16,13 @@
 		D732D02C24E71A6B00315F5D /* PositionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D732D02B24E71A6B00315F5D /* PositionsViewModel.swift */; };
 		D732D02E24E7298700315F5D /* PositionDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D732D02D24E7298700315F5D /* PositionDetail.swift */; };
 		D732D03024E72A9000315F5D /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = D732D02F24E72A9000315F5D /* Position.swift */; };
-		D732D03424E7558700315F5D /* NetworkingProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D732D03324E7558700315F5D /* NetworkingProtocols.swift */; };
-		D732D03624E755ED00315F5D /* DefaultNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = D732D03524E755ED00315F5D /* DefaultNetworking.swift */; };
 		D732D03824E7596300315F5D /* PositionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D732D03724E7596300315F5D /* PositionList.swift */; };
 		D732D03B24E7D61A00315F5D /* GithubJobAPI in Frameworks */ = {isa = PBXBuildFile; productRef = D732D03A24E7D61A00315F5D /* GithubJobAPI */; };
+		D732D04324E99D5700315F5D /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D732D04224E99D5700315F5D /* ServiceLocator.swift */; };
+		D732D04924E9C87A00315F5D /* OpenApiAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D732D04824E9C87A00315F5D /* OpenApiAdapter.swift */; };
+		D77DCF7524EAFAB9003263AE /* UserDefaultsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77DCF7424EAFAB9003263AE /* UserDefaultsStorage.swift */; };
+		D77DCF7824EB16A6003263AE /* GithubJobServices in Frameworks */ = {isa = PBXBuildFile; productRef = D77DCF7724EB16A6003263AE /* GithubJobServices */; };
+		D77DCF7B24EB16D5003263AE /* UICore in Frameworks */ = {isa = PBXBuildFile; productRef = D77DCF7A24EB16D5003263AE /* UICore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,9 +37,10 @@
 		D732D02B24E71A6B00315F5D /* PositionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionsViewModel.swift; sourceTree = "<group>"; };
 		D732D02D24E7298700315F5D /* PositionDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionDetail.swift; sourceTree = "<group>"; };
 		D732D02F24E72A9000315F5D /* Position.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
-		D732D03324E7558700315F5D /* NetworkingProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingProtocols.swift; sourceTree = "<group>"; };
-		D732D03524E755ED00315F5D /* DefaultNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultNetworking.swift; sourceTree = "<group>"; };
 		D732D03724E7596300315F5D /* PositionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionList.swift; sourceTree = "<group>"; };
+		D732D04224E99D5700315F5D /* ServiceLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocator.swift; sourceTree = "<group>"; };
+		D732D04824E9C87A00315F5D /* OpenApiAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenApiAdapter.swift; sourceTree = "<group>"; };
+		D77DCF7424EAFAB9003263AE /* UserDefaultsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsStorage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +49,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D732D03B24E7D61A00315F5D /* GithubJobAPI in Frameworks */,
+				D77DCF7824EB16A6003263AE /* GithubJobServices in Frameworks */,
+				D77DCF7B24EB16D5003263AE /* UICore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,10 +76,11 @@
 		D732D01124E6915600315F5D /* GithubJobExample */ = {
 			isa = PBXGroup;
 			children = (
+				D77DCF7324EAFA55003263AE /* StorageManager */,
 				D732D03224E7556200315F5D /* Networking */,
-				D732D03124E72A9F00315F5D /* Model */,
 				D732D02924E71A2A00315F5D /* ViewModel */,
 				D732D02A24E71A3B00315F5D /* UI */,
+				D732D04224E99D5700315F5D /* ServiceLocator.swift */,
 				D732D01224E6915600315F5D /* AppDelegate.swift */,
 				D732D01424E6915600315F5D /* SceneDelegate.swift */,
 				D732D01824E6915A00315F5D /* Assets.xcassets */,
@@ -95,6 +102,7 @@
 		D732D02924E71A2A00315F5D /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				D732D02F24E72A9000315F5D /* Position.swift */,
 				D732D02B24E71A6B00315F5D /* PositionsViewModel.swift */,
 			);
 			path = ViewModel;
@@ -110,21 +118,20 @@
 			path = UI;
 			sourceTree = "<group>";
 		};
-		D732D03124E72A9F00315F5D /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				D732D02F24E72A9000315F5D /* Position.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		D732D03224E7556200315F5D /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				D732D03324E7558700315F5D /* NetworkingProtocols.swift */,
-				D732D03524E755ED00315F5D /* DefaultNetworking.swift */,
+				D732D04824E9C87A00315F5D /* OpenApiAdapter.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		D77DCF7324EAFA55003263AE /* StorageManager */ = {
+			isa = PBXGroup;
+			children = (
+				D77DCF7424EAFAB9003263AE /* UserDefaultsStorage.swift */,
+			);
+			path = StorageManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,6 +152,8 @@
 			name = GithubJobExample;
 			packageProductDependencies = (
 				D732D03A24E7D61A00315F5D /* GithubJobAPI */,
+				D77DCF7724EB16A6003263AE /* GithubJobServices */,
+				D77DCF7A24EB16D5003263AE /* UICore */,
 			);
 			productName = GithubJobExample;
 			productReference = D732D00F24E6915600315F5D /* GithubJobExample.app */;
@@ -176,6 +185,8 @@
 			mainGroup = D732D00624E6915600315F5D;
 			packageReferences = (
 				D732D03924E7D61A00315F5D /* XCRemoteSwiftPackageReference "GithubJobAPI" */,
+				D77DCF7624EB16A6003263AE /* XCRemoteSwiftPackageReference "GithubJobServices" */,
+				D77DCF7924EB16D5003263AE /* XCRemoteSwiftPackageReference "UICore" */,
 			);
 			productRefGroup = D732D01024E6915600315F5D /* Products */;
 			projectDirPath = "";
@@ -206,13 +217,14 @@
 			files = (
 				D732D01324E6915600315F5D /* AppDelegate.swift in Sources */,
 				D732D03824E7596300315F5D /* PositionList.swift in Sources */,
-				D732D03424E7558700315F5D /* NetworkingProtocols.swift in Sources */,
+				D732D04324E99D5700315F5D /* ServiceLocator.swift in Sources */,
 				D732D02E24E7298700315F5D /* PositionDetail.swift in Sources */,
 				D732D01524E6915600315F5D /* SceneDelegate.swift in Sources */,
+				D732D04924E9C87A00315F5D /* OpenApiAdapter.swift in Sources */,
+				D77DCF7524EAFAB9003263AE /* UserDefaultsStorage.swift in Sources */,
 				D732D01724E6915600315F5D /* ContentView.swift in Sources */,
 				D732D03024E72A9000315F5D /* Position.swift in Sources */,
 				D732D02C24E71A6B00315F5D /* PositionsViewModel.swift in Sources */,
-				D732D03624E755ED00315F5D /* DefaultNetworking.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,6 +426,22 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		D77DCF7624EB16A6003263AE /* XCRemoteSwiftPackageReference "GithubJobServices" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/xhrobj/GithubJobServices";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		D77DCF7924EB16D5003263AE /* XCRemoteSwiftPackageReference "UICore" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/xhrobj/UICore";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -421,6 +449,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D732D03924E7D61A00315F5D /* XCRemoteSwiftPackageReference "GithubJobAPI" */;
 			productName = GithubJobAPI;
+		};
+		D77DCF7724EB16A6003263AE /* GithubJobServices */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D77DCF7624EB16A6003263AE /* XCRemoteSwiftPackageReference "GithubJobServices" */;
+			productName = GithubJobServices;
+		};
+		D77DCF7A24EB16D5003263AE /* UICore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D77DCF7924EB16D5003263AE /* XCRemoteSwiftPackageReference "UICore" */;
+			productName = UICore;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

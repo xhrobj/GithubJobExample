@@ -4,29 +4,44 @@
 //
 
 import Foundation
+import GithubJobServices
 
 protocol Fetchable {
     func fetch()
 }
 
 protocol PositionsDataSource {
-    func getPositions() -> [Position]
+    var allPositions: [Position] { get }
     func getPosition(index: Int) -> Position?
 }
 
 final class PositionsViewModel: ObservableObject {
     
     @Published private var positions: [Position] = []
+    @Published var isLoading = false
     
-    let apiFabric: NetworkingFabric
+    private let networkService: PositionNetworkService
+    private let storageService: PositionStorageService
     
-    init(apiFabric: NetworkingFabric) {
-        self.apiFabric = apiFabric
+    init() {
+        let networkService: PositionNetworkService = ServiceLocator.shared.getServiceUnsafe()
+        let storageService: PositionStorageService = ServiceLocator.shared.getServiceUnsafe()
+        self.networkService = networkService
+        self.storageService = storageService
+        initPositionsByStorage()
+    }
+    
+    private func initPositionsByStorage() {
+        self.replace(with: storageService.getAll)
+    }
+    
+    private func replace(with dtoList: [PositionDTO]) {
+        positions = dtoList.map{ Position(dto: $0) }
     }
 }
 
 extension PositionsViewModel: PositionsDataSource {
-    func getPositions() -> [Position] {
+    var allPositions: [Position] {
         positions
     }
     
@@ -40,9 +55,13 @@ extension PositionsViewModel: PositionsDataSource {
 
 extension PositionsViewModel: Fetchable {
     func fetch() {
-        apiFabric.api.findPositions(description: "ruby", page: nil) { (positions: [Position]?, error: Error?) in
-            if let positions = positions {
-                self.positions.append(contentsOf: positions)
+        isLoading = true
+        networkService.fetchPositions(description: "ruby", page: nil) {
+            (positions: [PositionDTO]?, error: Error?) in
+            if let positionDTOs = positions {
+                self.replace(with: positionDTOs)
+                self.isLoading = false
+                self.storageService.save(positions: positionDTOs)
             }
         }
     }

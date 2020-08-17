@@ -23,7 +23,7 @@ struct PositionDetailView: View {
                 .padding()
         }
         .navigationBarTitle("Job description")
-        .navigationBarItems(leading: Text("Positions").foregroundColor(.blue), trailing: EmptyView())
+        .navigationBarItems(leading: Text("Positions").foregroundColor(.accentColor), trailing: EmptyView())
     }
 }
 
