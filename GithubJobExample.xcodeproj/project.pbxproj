@@ -423,7 +423,7 @@
 			repositoryURL = "https://github.com/xhrobj/GithubJobAPI.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
+				minimumVersion = 1.0.2;
 			};
 		};
 		D77DCF7624EB16A6003263AE /* XCRemoteSwiftPackageReference "GithubJobServices" */ = {
