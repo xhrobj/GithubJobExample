@@ -6,8 +6,9 @@
 
 import UIKit
 import SwiftUI
-import GithubJobAPI
 import GithubJobServices
+import GithubJobAPI
+import PositionUserDefaultsStorage
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -31,7 +32,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     private func setupServiceLocator() {
         let networkService: PositionNetworkService = PositionNetworkService(apiManager: OpenApiAdapter())
-        let storageService: PositionStorageService = PositionStorageService(storageManager: UserDefaultsStorage())
+        let storageService: PositionStorageService = PositionStorageService(storageManager: PositionUserDefaultsStorageManager())
         
         serviceLocator.addService(service: networkService)
         serviceLocator.addService(service: storageService)

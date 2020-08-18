@@ -4,7 +4,7 @@
 //
 import Foundation
 
-struct Position: Codable {
+struct Position {
     var id: String
     var type: String
     var url: String

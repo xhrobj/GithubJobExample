@@ -6,6 +6,21 @@
 import Foundation
 import GithubJobServices
 
+extension Position: PositionDTO {
+    init(dto: PositionDTO) {
+        id = dto.id
+        type = dto.type
+        url = dto.url
+        company = dto.company
+        companyUrl = dto.companyUrl
+        location = dto.location
+        title = dto.title
+        description = dto.description
+        howToApply = dto.howToApply
+        companyLogo = dto.companyLogo
+    }
+}
+
 protocol Fetchable {
     func fetch()
 }

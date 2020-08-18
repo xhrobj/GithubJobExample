@@ -20,6 +20,15 @@
         }
       },
       {
+        "package": "PositionUserDefaultsStorage",
+        "repositoryURL": "https://github.com/xhrobj/PositionUserDefaultsStorage",
+        "state": {
+          "branch": null,
+          "revision": "c1e22c7fb26b68d61cbb05aa0f683926909ca884",
+          "version": "1.0.2"
+        }
+      },
+      {
         "package": "UICore",
         "repositoryURL": "https://github.com/xhrobj/UICore",
         "state": {

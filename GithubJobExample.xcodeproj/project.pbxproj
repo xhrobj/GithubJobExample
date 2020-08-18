@@ -20,7 +20,7 @@
 		D732D03B24E7D61A00315F5D /* GithubJobAPI in Frameworks */ = {isa = PBXBuildFile; productRef = D732D03A24E7D61A00315F5D /* GithubJobAPI */; };
 		D732D04324E99D5700315F5D /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D732D04224E99D5700315F5D /* ServiceLocator.swift */; };
 		D732D04924E9C87A00315F5D /* OpenApiAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D732D04824E9C87A00315F5D /* OpenApiAdapter.swift */; };
-		D77DCF7524EAFAB9003263AE /* UserDefaultsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77DCF7424EAFAB9003263AE /* UserDefaultsStorage.swift */; };
+		D73BB65724EBE24800D30D3B /* PositionUserDefaultsStorage in Frameworks */ = {isa = PBXBuildFile; productRef = D73BB65624EBE24800D30D3B /* PositionUserDefaultsStorage */; };
 		D77DCF7824EB16A6003263AE /* GithubJobServices in Frameworks */ = {isa = PBXBuildFile; productRef = D77DCF7724EB16A6003263AE /* GithubJobServices */; };
 		D77DCF7B24EB16D5003263AE /* UICore in Frameworks */ = {isa = PBXBuildFile; productRef = D77DCF7A24EB16D5003263AE /* UICore */; };
 /* End PBXBuildFile section */
@@ -40,7 +40,6 @@
 		D732D03724E7596300315F5D /* PositionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionList.swift; sourceTree = "<group>"; };
 		D732D04224E99D5700315F5D /* ServiceLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocator.swift; sourceTree = "<group>"; };
 		D732D04824E9C87A00315F5D /* OpenApiAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenApiAdapter.swift; sourceTree = "<group>"; };
-		D77DCF7424EAFAB9003263AE /* UserDefaultsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsStorage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D73BB65724EBE24800D30D3B /* PositionUserDefaultsStorage in Frameworks */,
 				D732D03B24E7D61A00315F5D /* GithubJobAPI in Frameworks */,
 				D77DCF7824EB16A6003263AE /* GithubJobServices in Frameworks */,
 				D77DCF7B24EB16D5003263AE /* UICore in Frameworks */,
@@ -76,7 +76,6 @@
 		D732D01124E6915600315F5D /* GithubJobExample */ = {
 			isa = PBXGroup;
 			children = (
-				D77DCF7324EAFA55003263AE /* StorageManager */,
 				D732D03224E7556200315F5D /* Networking */,
 				D732D02924E71A2A00315F5D /* ViewModel */,
 				D732D02A24E71A3B00315F5D /* UI */,
@@ -126,14 +125,6 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
-		D77DCF7324EAFA55003263AE /* StorageManager */ = {
-			isa = PBXGroup;
-			children = (
-				D77DCF7424EAFAB9003263AE /* UserDefaultsStorage.swift */,
-			);
-			path = StorageManager;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -154,6 +145,7 @@
 				D732D03A24E7D61A00315F5D /* GithubJobAPI */,
 				D77DCF7724EB16A6003263AE /* GithubJobServices */,
 				D77DCF7A24EB16D5003263AE /* UICore */,
+				D73BB65624EBE24800D30D3B /* PositionUserDefaultsStorage */,
 			);
 			productName = GithubJobExample;
 			productReference = D732D00F24E6915600315F5D /* GithubJobExample.app */;
@@ -187,6 +179,7 @@
 				D732D03924E7D61A00315F5D /* XCRemoteSwiftPackageReference "GithubJobAPI" */,
 				D77DCF7624EB16A6003263AE /* XCRemoteSwiftPackageReference "GithubJobServices" */,
 				D77DCF7924EB16D5003263AE /* XCRemoteSwiftPackageReference "UICore" */,
+				D73BB65524EBE24800D30D3B /* XCRemoteSwiftPackageReference "PositionUserDefaultsStorage" */,
 			);
 			productRefGroup = D732D01024E6915600315F5D /* Products */;
 			projectDirPath = "";
@@ -221,7 +214,6 @@
 				D732D02E24E7298700315F5D /* PositionDetail.swift in Sources */,
 				D732D01524E6915600315F5D /* SceneDelegate.swift in Sources */,
 				D732D04924E9C87A00315F5D /* OpenApiAdapter.swift in Sources */,
-				D77DCF7524EAFAB9003263AE /* UserDefaultsStorage.swift in Sources */,
 				D732D01724E6915600315F5D /* ContentView.swift in Sources */,
 				D732D03024E72A9000315F5D /* Position.swift in Sources */,
 				D732D02C24E71A6B00315F5D /* PositionsViewModel.swift in Sources */,
@@ -426,6 +418,14 @@
 				minimumVersion = 1.0.2;
 			};
 		};
+		D73BB65524EBE24800D30D3B /* XCRemoteSwiftPackageReference "PositionUserDefaultsStorage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/xhrobj/PositionUserDefaultsStorage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.2;
+			};
+		};
 		D77DCF7624EB16A6003263AE /* XCRemoteSwiftPackageReference "GithubJobServices" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/xhrobj/GithubJobServices";
@@ -449,6 +449,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D732D03924E7D61A00315F5D /* XCRemoteSwiftPackageReference "GithubJobAPI" */;
 			productName = GithubJobAPI;
+		};
+		D73BB65624EBE24800D30D3B /* PositionUserDefaultsStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D73BB65524EBE24800D30D3B /* XCRemoteSwiftPackageReference "PositionUserDefaultsStorage" */;
+			productName = PositionUserDefaultsStorage;
 		};
 		D77DCF7724EB16A6003263AE /* GithubJobServices */ = {
 			isa = XCSwiftPackageProductDependency;
